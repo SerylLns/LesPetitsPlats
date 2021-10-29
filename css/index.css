@@ -193,6 +193,10 @@ main {
 .card-description-header .time,i,span{
   background-color: #E6E6E6;
 }
+.time{
+  display: flex;
+  align-items: center;
+}
 .time span{
   font-weight: 600;
   margin-left: 5px;
@@ -202,15 +206,15 @@ main {
   width: 90%;
   margin: auto;
   justify-content: space-between;
-  margin-top: 20px;
+  margin-top: 15px;
   font-size: 12px;
-  height: 116px;
+  height: 105px;
   background-color: #E6E6E6;
 }
 
 .ingredients{
   list-style: none;
-  width: 50%;
+  width: 60%;
   background-color: #E6E6E6;
 }
 .ingredients li{
@@ -223,7 +227,7 @@ main {
   background-color: #E6E6E6;
 }
 .recipe{
-  max-width: 50%;
+  max-width: 40%;
   background-color: #E6E6E6;
   overflow: hidden;
   text-overflow: ellipsis;

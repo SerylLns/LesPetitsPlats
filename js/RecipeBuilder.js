@@ -3,9 +3,13 @@ export default class RecipeBuilder {
     const recipesList = document.querySelector(".cards-container");
     recipes.forEach((recipe) => {
       let ingredients = recipe.ingredients.map((ingredient) => {
-        return `<li>${ingredient.ingredient}: <span>${ingredient.quantity} ${
-          ingredient.unit === undefined ? "" : ingredient.unit
-        }</span></li>`;
+        if (ingredient.quantity === undefined) { 
+          return `<li>${ingredient.ingredient}</li>`;
+        } else {
+          return `<li>${ingredient.ingredient}: <span>${ingredient.quantity} ${
+            ingredient.unit === undefined ? "" : ingredient.unit
+          }</span></li>`;
+        }
       });
       console.log(ingredients);
       let cardTemplate = `
@@ -16,7 +20,7 @@ export default class RecipeBuilder {
               <h4>${recipe.name}</h4>
               <div class="time">
                 <i class="far fa-clock"></i>
-                <span>${recipe.time} min</span>
+                <span>${recipe.time}min</span>
               </div>
             </div>
             <div class="card-ingredients">
