@@ -1,6 +1,6 @@
 import RecipeBuilder from "./RecipeBuilder.js";
 
-// select display ingredients
+// display select ingredients
 const displayFilter = () => {
   const selects = document.querySelectorAll('.select');
   selects.forEach((select) => {
@@ -16,8 +16,10 @@ const displayFilter = () => {
     })
   })
 }
-console.log(recipes);
-displayFilter();
 
-new RecipeBuilder().init(recipes);
+// Main 
+displayFilter();
+const builder = new RecipeBuilder(recipes);
+builder.initCards();
+builder.initCategories();
 

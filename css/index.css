@@ -17,7 +17,7 @@ header {
   justify-content: center;
 }
 .logo {
-  padding-top: 40px;
+  padding-top: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -43,16 +43,21 @@ main {
 #searchbar {
   position: relative;
   display: block;
-  width: 84%;
+  width: 86%;
   margin: 10px auto;
   /* margin-left: 8%; */
   height: 50px;
   border: none;
   background-color: #e7e7f2;
   border-radius: 5px;
-  font-size: 22px;
-  padding: 0 3%;
+  font-size: 18px;
+  padding: 0 2%;
+  outline-color: #ed6454;
 }
+#searchbar::placeholder {
+  color: #ACACAC;
+}
+
 .icon-search {
   position: absolute;
   top: 13px;
@@ -135,12 +140,16 @@ main {
   flex-direction: column;
   flex-wrap: wrap;
   display: none;
+  overflow: hidden;
 }
 .select-list li{
   position: relative;
   list-style: none;
   background-color: inherit;
   font-size: 18px;
+  margin: 3px 0;
+  cursor: pointer;
+  text-overflow: ellipsis;
 }
 
 /* CARDS */
@@ -149,9 +158,9 @@ main {
   display: flex;
   justify-content: space-between;
   width: 90%;
-  margin: 25px auto;
+  margin: 50px auto;
   flex-wrap: wrap;
-  row-gap: 20px;
+  row-gap: 40px;
 }
 
 .card{
@@ -234,4 +243,29 @@ main {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 7;
   max-height: 105px;
+}
+
+.tags-list{
+  width: 90%;
+  margin: 7px auto;
+  display: flex;
+}
+.tag{
+  width: 100px;
+  height: 35px;
+  margin-right: 5px;
+  color: white;
+  font-weight: 500;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 5px;
+}
+.tag span {
+  font-size: 14px;
+  background-color: inherit;
+}
+.tag i {
+  cursor: pointer;
+  background-color: inherit;
 }

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Les petits plats</title>
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
@@ -23,10 +23,23 @@
     </header>
     <main>
       <div class="search">
-        <input type="text" id="searchbar" />
+        <input type="text" id="searchbar" placeholder="Rechercher un ingrédient, appareil, ustensiles ou une recette" />
         <i class="fas fa-search icon-search"></i>
       </div>
-
+      <div class="tags-list">
+        <div class="tag --blue">
+          <span>Coco</span>
+          <i class="far fa-times-circle"></i>
+        </div>
+        <div class="tag --green">
+          <span>Blender</span>
+          <i class="far fa-times-circle"></i>
+        </div>
+        <div class="tag --orange">
+          <span>Verres</span>
+          <i class="far fa-times-circle"></i>
+        </div>
+      </div>
       <div class="filters">
         <div id="select-ingredient" class="select">
           <input
@@ -37,41 +50,22 @@
           />
           <i class="fas fa-chevron-down --blue"></i>
           <ul class="select-list --blue" id="ingredients" hidden>
-            <li>Coco</li>
-            <li>Chocolats</li>
-            <li>Maïs</li>
-            <li>Coco</li>
-            <li>Chocolats</li>
-            <li>Maïs</li>
-            <li>Coco</li>
           </ul>
         </div>
 
         <div id="select-appareil" class="select">
           <input type="text" class="--green" placeholder="Appareil" />
           <i class="fas fa-chevron-down --green"></i>
-          <ul class="select-list --green">
-            <li>Coco</li>
-            <li>Chocolats</li>
-            <li>Maïs</li>
-            <li>Coco</li>
-            <li>Chocolats</li>
-            <li>Maïs</li>
-            <li>Coco</li>
+          <ul class="select-list --green" id="appliances">
+            
           </ul>
         </div>
 
         <div id="select-ustensile" class="select">
           <input type="text" class="--orange" placeholder="Ustensiles" />
           <i class="fas fa-chevron-down --orange"></i>
-          <ul class="select-list --orange">
-            <li>Coco</li>
-            <li>Chocolats</li>
-            <li>Maïs</li>
-            <li>Coco</li>
-            <li>Chocolats</li>
-            <li>Maïs</li>
-            <li>Coco</li>
+          <ul class="select-list --orange" id="ustensils">
+           
           </ul>
         </div>
       </div>
