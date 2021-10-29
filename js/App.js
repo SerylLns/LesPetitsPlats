@@ -1,7 +1,8 @@
+import RecipeBuilder from "./RecipeBuilder.js";
 
+// select display ingredients
 const displayFilter = () => {
   const selects = document.querySelectorAll('.select');
-  console.log(selects);
   selects.forEach((select) => {
     select.addEventListener("click", (e) => {
       select.classList.toggle('active');
@@ -15,6 +16,8 @@ const displayFilter = () => {
     })
   })
 }
-
+console.log(recipes);
 displayFilter();
+
+new RecipeBuilder().init(recipes);
 
