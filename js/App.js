@@ -1,3 +1,4 @@
+import Search from "../Search.js";
 import RecipeBuilder from "./RecipeBuilder.js";
 
 // display select ingredients
@@ -18,8 +19,19 @@ const displayFilter = () => {
 }
 
 // Main 
+// build select input
 displayFilter();
+// build recipes
 const builder = new RecipeBuilder(recipes);
 builder.initCards();
 builder.initCategories();
 
+const inputSearch = document.querySelector("#searchbar");
+
+const search = new Search()
+inputSearch.addEventListener("keyup", (e) => {
+  let inputText = e.target.value;
+  console.log(inputText);
+  let articlesSelect = search.filterRecipe(inputText, recipes);
+  builder.filterCards(articlesSelect);
+});

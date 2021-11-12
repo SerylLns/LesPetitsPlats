@@ -2,12 +2,12 @@ export default class RecipeBuilder {
   constructor(recipes) {
     this.recipes = recipes;
   }
-  initCategories() {
+  initCategories(recipesData = this.recipes) {
     let ingredients = [];
     let appliances = [];
     let ustensils = [];
     // get sort ingredients, appliances and ustensils
-    this.recipes.forEach(recipe => {
+    recipesData.forEach((recipe) => {
       recipe.ingredients.forEach((ingredient) => {
         if (!ingredients.includes(ingredient.ingredient)) {
           ingredients.push(ingredient.ingredient);
@@ -22,15 +22,22 @@ export default class RecipeBuilder {
         appliances.push(recipe.appliance);
       }
     });
-    this.displayDropdown(ingredients,ustensils,appliances)
+    this.displayDropdown(ingredients, ustensils, appliances);
   }
 
   displayDropdown(ingredients, ustensils, appliances) {
     const ingredientsSelect = document.getElementById("ingredients");
     const ustensilsSelect = document.getElementById("ustensils");
     const appliancesSelect = document.getElementById("appliances");
+    // clear all
+    ingredientsSelect.innerHTML = "";
+    ustensilsSelect.innerHTML = "";
+    appliancesSelect.innerHTML = "";
     appliances.forEach((appliance) => {
-      appliancesSelect.insertAdjacentHTML("beforeend", `<li data-name="${appliance}">${appliance}</li>`)
+      appliancesSelect.insertAdjacentHTML(
+        "beforeend",
+        `<li data-name="${appliance}">${appliance}</li>`
+      );
     });
 
     ustensils.forEach((ustensil) => {
@@ -40,19 +47,18 @@ export default class RecipeBuilder {
         `<li data-name="${ustensil}">${ustensil}</li>`
       );
     });
-    for (let i = 0; i < 30; i++) {
+    ingredients.forEach((ingredient, index) => {
+      if (index > 29) return;
       ingredientsSelect.insertAdjacentHTML(
         "beforeend",
-        `<li data-name="${ingredients[i]}">${ingredients[i]}</li>`
+        `<li data-name="${ingredient}">${ingredient}</li>`
       );
-      
-    }
-
+    });
   }
   // display recipes cards
-  initCards() {
+  initCards(recipesData = this.recipes) {
     const recipesList = document.querySelector(".cards-container");
-    recipes.forEach((recipe) => {
+    recipesData.forEach((recipe) => {
       let ingredients = recipe.ingredients.map((ingredient) => {
         if (ingredient.quantity === undefined) {
           return `<li>${ingredient.ingredient}</li>`;
@@ -86,5 +92,11 @@ export default class RecipeBuilder {
       `;
       recipesList.insertAdjacentHTML("beforeend", cardTemplate);
     });
+  }
+  filterCards(newRecipes) {
+    const recipesList = document.querySelector(".cards-container");
+    recipesList.innerHTML = "";
+    this.initCards(newRecipes);
+    this.initCategories(newRecipes);
   }
 }
