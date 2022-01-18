@@ -18,7 +18,7 @@ const displayFilter = () => {
   })
 }
 
-// Main 
+// Main
 // build select input
 displayFilter();
 // build recipes
@@ -31,7 +31,13 @@ const inputSearch = document.querySelector("#searchbar");
 const search = new Search()
 inputSearch.addEventListener("keyup", (e) => {
   let inputText = e.target.value;
-  console.log(inputText);
   let articlesSelect = search.filterRecipe(inputText, recipes);
   builder.filterCards(articlesSelect);
+});
+
+const inputIngredient = document.querySelector("#select-ingredient input");
+inputIngredient.addEventListener("keyup", (e) => {
+  let inputText = e.target.value;
+  let ingredientsSelect = search.filterIngredient(inputText, recipes);
+  builder.filterIngredients(ingredientsSelect);
 });

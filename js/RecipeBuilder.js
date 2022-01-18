@@ -88,7 +88,7 @@ export default class RecipeBuilder {
               </p>
             </div>
           </div>
-        </div>  
+        </div>
       `;
       recipesList.insertAdjacentHTML("beforeend", cardTemplate);
     });
@@ -98,5 +98,17 @@ export default class RecipeBuilder {
     recipesList.innerHTML = "";
     this.initCards(newRecipes);
     this.initCategories(newRecipes);
+  }
+
+  filterIngredients(newIngredients) {
+    const ingredientsSelect = document.getElementById("ingredients");
+    ingredientsSelect.innerHTML = "";
+    newIngredients.forEach((ingredient, index) => {
+      if (index > 29) return;
+      ingredientsSelect.insertAdjacentHTML(
+        "beforeend",
+        `<li data-name="${ingredient}">${ingredient}</li>`
+      );
+    });
   }
 }
