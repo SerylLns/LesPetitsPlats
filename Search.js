@@ -36,4 +36,29 @@ export default class Search {
     });
     return ingredients;
   }
+
+  filterAppareil(searchWord, articlesData) {
+    let appareils = [];
+    articlesData.forEach((recipe) => {
+      if (
+        !appareils.includes(recipe.appliance) &&
+        recipe.appliance.toLowerCase().match(searchWord.toLowerCase())
+      ) {
+        appareils.push(recipe.appliance);
+      }
+    });
+    return appareils;
+  }
+
+  filterUstensil(searchWord, articlesData) {
+    let ustensils = [];
+    articlesData.forEach((recipe) => {
+      recipe.ustensils.forEach((ustensil) => {
+        if(!ustensils.includes(ustensil) && ustensil.toLowerCase().match(searchWord.toLowerCase()) ){
+          ustensils.push(ustensil);
+        }
+      });
+    });
+    return ustensils;
+  }
 }

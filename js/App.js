@@ -41,3 +41,17 @@ inputIngredient.addEventListener("keyup", (e) => {
   let ingredientsSelect = search.filterIngredient(inputText, recipes);
   builder.filterIngredients(ingredientsSelect);
 });
+
+const inputAppareil = document.querySelector("#select-appareil input");
+inputAppareil.addEventListener("keyup", (e) => {
+  let inputText = e.target.value;
+  let appareilsSelect = search.filterAppareil(inputText, recipes);
+  builder.filterAppliance(appareilsSelect);
+});
+
+const inputUstensile = document.querySelector("#select-ustensile input");
+inputUstensile.addEventListener("keyup", (e) => {
+  let inputText = e.target.value;
+  let ustensilsSelect = search.filterUstensil(inputText, recipes);
+  builder.filterUstensil(ustensilsSelect);
+});

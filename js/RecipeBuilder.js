@@ -111,4 +111,26 @@ export default class RecipeBuilder {
       );
     });
   }
+
+  filterAppliance(newAppliance) {
+    const appliancesSelect = document.getElementById("appliances");
+    appliancesSelect.innerHTML = "";
+    newAppliance.forEach((appliance) => {
+      appliancesSelect.insertAdjacentHTML(
+        "beforeend",
+        `<li data-name="${appliance}">${appliance}</li>`
+      );
+    });
+  }
+  filterUstensil(newUstensil) {
+    const ustensilsSelect = document.getElementById("ustensils");
+    ustensilsSelect.innerHTML = "";
+    newUstensil.forEach((ustensil) => {
+      // if(ustensil.length > )
+      ustensilsSelect.insertAdjacentHTML(
+        "beforeend",
+        `<li data-name="${ustensil}">${ustensil}</li>`
+      );
+    });
+  }
 }
