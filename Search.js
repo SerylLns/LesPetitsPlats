@@ -1,6 +1,8 @@
 export default class Search {
+
+
   filterRecipe(searchWord, articlesData) {
-    if (searchWord.length < 3) return;
+    if (searchWord.length < 3) return articlesData;
     const test = new RegExp(searchWord.toLowerCase());
     let filterArticles = [];
 
