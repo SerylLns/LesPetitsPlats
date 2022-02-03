@@ -1,6 +1,6 @@
 import Search from "../Search.js";
 import RecipeBuilder from "./RecipeBuilder.js";
-
+import { initTags } from "./Tag.js";
 // display select ingredients
 const displayFilter = () => {
   const selects = document.querySelectorAll('.select');
@@ -25,14 +25,18 @@ displayFilter();
 const builder = new RecipeBuilder(recipes);
 builder.initCards();
 builder.initCategories();
+initTags();
 
 const inputSearch = document.querySelector("#searchbar");
 
 const search = new Search()
 inputSearch.addEventListener("keyup", (e) => {
   let inputText = e.target.value;
+  var startTime = performance.now();
   let articlesSelect = search.filterRecipe(inputText, recipes);
   builder.filterCards(articlesSelect);
+  var endTime = performance.now();
+  console.log(`Call to doSomething took ${endTime - startTime} milliseconds`);
 });
 
 const inputIngredient = document.querySelector("#select-ingredient input");
