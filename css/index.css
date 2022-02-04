@@ -260,6 +260,7 @@ main {
   justify-content: space-around;
   align-items: center;
   border-radius: 5px;
+  cursor: pointer;
 }
 .tag span {
   font-size: 14px;

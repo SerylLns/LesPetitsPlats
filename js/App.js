@@ -27,7 +27,7 @@ inputSearch.addEventListener("keyup", (e) => {
     inputText = e.target.value;
     allRecipes = recipes;
     tagSelected.forEach((tag) => {
-      allRecipes = search.filterRecipe(tag, recipes);
+      allRecipes = search.filterRecipe(tag, allRecipes);
     });
     builder.filterCards(allRecipes);
   }
@@ -60,8 +60,8 @@ inputUstensile.addEventListener("keyup", (e) => {
 const dropdown = document.querySelectorAll(".select-list");
 dropdown.forEach((elem) => {
   elem.addEventListener("click", (e) => {
+    e.currentTarget.parentNode.querySelector("input").value = "";
     displayTag(e.target.dataset.name, e.target.dataset.color);
-    console.log(e.target);
     tagSelected.push(e.target.dataset.name);
     allRecipes = search.filterRecipe(e.target.dataset.name, allRecipes);
     builder.filterCards(allRecipes);
