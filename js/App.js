@@ -1,39 +1,22 @@
 import Search from "../Search.js";
 import RecipeBuilder from "./RecipeBuilder.js";
-import { initTags } from "./Tag.js";
 import { displayTag } from "./Tag.js";
-// display dropdowns
-const displayFilter = () => {
-  const selects = document.querySelectorAll(".select");
-  selects.forEach((select) => {
-    select.addEventListener("click", (e) => {
-      select.classList.toggle("active");
-      const list = select.querySelector("ul");
-      const icon = select.querySelector("i");
-      icon.classList.contains("fa-chevron-down")
-        ? icon.classList.replace("fa-chevron-down", "fa-chevron-up")
-        : icon.classList.replace("fa-chevron-up", "fa-chevron-down");
-      list.style.display === "flex"
-        ? (list.style.display = "none")
-        : (list.style.display = "flex");
-    });
-  });
-};
-
+import {displayFilter} from './Filter.js'
 // Main
-// build select input
-displayFilter();
 // build recipes
 let allRecipes = recipes;
+// build select input
+displayFilter();
+// init all recipes and catégories
 const builder = new RecipeBuilder(allRecipes);
 builder.initCards();
 builder.initCategories();
 // tags
-initTags();
 let tagSelected = [];
-let inputText = "";
-
+// searchBar
 const inputSearch = document.querySelector("#searchbar");
+let inputText = ""; 
+
 const search = new Search();
 inputSearch.addEventListener("keyup", (e) => {
   inputText = e.target.value;
