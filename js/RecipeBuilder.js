@@ -107,7 +107,7 @@ export default class RecipeBuilder {
       if (index > 29) return;
       ingredientsSelect.insertAdjacentHTML(
         "beforeend",
-        `<li data-name="${ingredient}">${ingredient}</li>`
+        `<li data-name="${ingredient}" data-color="--blue">${ingredient}</li>`
       );
     });
   }
@@ -118,7 +118,7 @@ export default class RecipeBuilder {
     newAppliance.forEach((appliance) => {
       appliancesSelect.insertAdjacentHTML(
         "beforeend",
-        `<li data-name="${appliance}">${appliance}</li>`
+        `<li data-name="${appliance}" data-color="--green">${appliance}</li>`
       );
     });
   }
@@ -129,7 +129,7 @@ export default class RecipeBuilder {
       // if(ustensil.length > )
       ustensilsSelect.insertAdjacentHTML(
         "beforeend",
-        `<li data-name="${ustensil}">${ustensil}</li>`
+        `<li data-name="${ustensil}" data-color="--orange">${ustensil}</li>`
       );
     });
   }
